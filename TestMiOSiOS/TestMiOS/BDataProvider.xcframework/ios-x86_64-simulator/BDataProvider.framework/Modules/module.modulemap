@@ -1,0 +1,11 @@
+framework module BDataProvider {
+  umbrella header "BDataProvider.h"
+
+  export *
+  module * { export * }
+}
+
+module BDataProvider.Swift {
+    header "BDataProvider-Swift.h"
+    requires objc
+}
