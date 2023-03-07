@@ -11,21 +11,32 @@ import BDataProvider
 
 final class DevelopersModelController {
 
-    private let teamProvider: TeamProvider
+    private let teamProvider = TeamProvider()
+    lazy var developers: [Developer] = configureDevelopersList()
 
-    init() {
-        teamProvider = TeamProvider()
-        teamProvider.teamUIDelegate = self
+    func setTeamUIDelegate(_ delegate: TeamDataUpdaterDelegate) {
+        teamProvider.teamUIDelegate = delegate
+    }
+
+    func provideMemberInformation(for id: String, completion: (Developer?) -> Void) {
+        teamProvider.provideMemberInformationForID(id: id, completion: completion)
     }
 }
 
-extension DevelopersModelController: TeamDataUpdaterDelegate {
+private extension DevelopersModelController {
 
-    func teamListShouldBeRefreshed() {
+    func configureDevelopersList() -> [Developer] {
+        var developersList: [Developer] = []
+        teamProvider.provideTeamMemberIDs { list in
+            list.forEach {
+                provideMemberInformation(for: $0) { developer in
+                    guard let developer else { return }
 
-    }
+                    developersList.append(developer)
+                }
+            }
+        }
 
-    func informationForMemberWithIDhasChanged(memberID: String) {
-        
+        return developersList
     }
 }
