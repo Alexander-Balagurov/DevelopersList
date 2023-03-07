@@ -20,7 +20,7 @@ private extension String {
 final class DevelopersTableViewCell: UITableViewCell {
 
     private let containerView = UIView()
-    private let developerImageView = UIImageView()
+    private let developerImageView = LoaderImageView()
     private let nameLabel = UILabel()
     private let addressLabel = UILabel()
     private let codingLevelLabel = UILabel()
@@ -50,7 +50,7 @@ final class DevelopersTableViewCell: UITableViewCell {
         nameLabel.text = ""
         addressLabel.text = ""
         codingLevelLabel.text = ""
-        developerImageView.image = nil
+        developerImageView.startAnimating()
     }
 }
 
@@ -62,7 +62,7 @@ extension DevelopersTableViewCell {
         let name: String
         let address: String
         let codingLevel: String
-        let image: UIImage
+        let imageURL: URL?
     }
 }
 
@@ -124,6 +124,6 @@ private extension DevelopersTableViewCell {
         nameLabel.text = viewConfig.name
         addressLabel.text = viewConfig.address
         codingLevelLabel.text = viewConfig.codingLevel
-        developerImageView.image = viewConfig.image
+        developerImageView.imageURL = viewConfig.imageURL
     }
 }

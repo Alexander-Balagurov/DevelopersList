@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		992F939A29B73C5D009F79D1 /* DevelopersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992F939929B73C5D009F79D1 /* DevelopersTableViewCell.swift */; };
 		992F939C29B74D30009F79D1 /* UIDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992F939B29B74D30009F79D1 /* UIDimension.swift */; };
+		998AAA4F29B7925A005C9CDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAA4E29B7925A005C9CDB /* UIImageView+Extension.swift */; };
+		998AAA5129B795B3005C9CDB /* LoaderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998AAA5029B795B3005C9CDB /* LoaderImageView.swift */; };
 		99A700BA29B293BC00B4BC8A /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700B929B293BC00B4BC8A /* Autolayout.swift */; };
-		99A700C029B2943E00B4BC8A /* UICollectionView+reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700BC29B2943E00B4BC8A /* UICollectionView+reusable.swift */; };
 		99A700C129B2943E00B4BC8A /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700BD29B2943E00B4BC8A /* UIViewController+extensions.swift */; };
 		99A700C329B2943E00B4BC8A /* UITableView+reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700BF29B2943E00B4BC8A /* UITableView+reusable.swift */; };
 		99A700C529B294F600B4BC8A /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700C429B294F600B4BC8A /* MainFlowController.swift */; };
@@ -40,8 +41,9 @@
 /* Begin PBXFileReference section */
 		992F939929B73C5D009F79D1 /* DevelopersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersTableViewCell.swift; sourceTree = "<group>"; };
 		992F939B29B74D30009F79D1 /* UIDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDimension.swift; sourceTree = "<group>"; };
+		998AAA4E29B7925A005C9CDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		998AAA5029B795B3005C9CDB /* LoaderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderImageView.swift; sourceTree = "<group>"; };
 		99A700B929B293BC00B4BC8A /* Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Autolayout.swift; path = "../../../../../Downloads/EmployeesAndGallery-develop/EmployeesAndGallery/EmployeesAndGallery/Common/Autolayout.swift"; sourceTree = "<group>"; };
-		99A700BC29B2943E00B4BC8A /* UICollectionView+reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+reusable.swift"; sourceTree = "<group>"; };
 		99A700BD29B2943E00B4BC8A /* UIViewController+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
 		99A700BF29B2943E00B4BC8A /* UITableView+reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+reusable.swift"; sourceTree = "<group>"; };
 		99A700C429B294F600B4BC8A /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				992F939929B73C5D009F79D1 /* DevelopersTableViewCell.swift */,
+				998AAA5029B795B3005C9CDB /* LoaderImageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -92,9 +95,9 @@
 		99A700BB29B2943E00B4BC8A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				99A700BC29B2943E00B4BC8A /* UICollectionView+reusable.swift */,
 				99A700BD29B2943E00B4BC8A /* UIViewController+extensions.swift */,
 				99A700BF29B2943E00B4BC8A /* UITableView+reusable.swift */,
+				998AAA4E29B7925A005C9CDB /* UIImageView+Extension.swift */,
 			);
 			name = Extensions;
 			path = "../../../../../Downloads/EmployeesAndGallery-develop/EmployeesAndGallery/EmployeesAndGallery/Common/Extensions";
@@ -252,11 +255,12 @@
 			files = (
 				992F939C29B74D30009F79D1 /* UIDimension.swift in Sources */,
 				99A7FFEE29B265E200B4BC8A /* AppFlowController.swift in Sources */,
-				99A700C029B2943E00B4BC8A /* UICollectionView+reusable.swift in Sources */,
 				99A700C929B2A0FC00B4BC8A /* DevelopersFlowController.swift in Sources */,
 				992F939A29B73C5D009F79D1 /* DevelopersTableViewCell.swift in Sources */,
 				99A700C329B2943E00B4BC8A /* UITableView+reusable.swift in Sources */,
 				99A700C529B294F600B4BC8A /* MainFlowController.swift in Sources */,
+				998AAA5129B795B3005C9CDB /* LoaderImageView.swift in Sources */,
+				998AAA4F29B7925A005C9CDB /* UIImageView+Extension.swift in Sources */,
 				99A700BA29B293BC00B4BC8A /* Autolayout.swift in Sources */,
 				99A700C129B2943E00B4BC8A /* UIViewController+extensions.swift in Sources */,
 				D7C4F0A21CF4444E003FEDB9 /* AppDelegate.swift in Sources */,
@@ -388,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TestMiOS/**",
@@ -409,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TestMiOS/**",

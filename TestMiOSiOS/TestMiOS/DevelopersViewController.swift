@@ -52,11 +52,12 @@ extension DevelopersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let developer = modelController.developers[indexPath.row]
         let cell: DevelopersTableViewCell = tableView.dequeueCell(indexPath: indexPath)
+        let imageURL = URL(string: developer.photoURL ?? "")
         cell.viewConfig = .init(
             name: developer.name,
             address: developer.address,
             codingLevel: developer.codingLevel,
-            image: UIImage(systemName: "person.2")!
+            imageURL: imageURL
         )
 
         return cell
