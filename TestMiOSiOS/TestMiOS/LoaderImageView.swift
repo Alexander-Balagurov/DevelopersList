@@ -16,8 +16,13 @@ final class LoaderImageView: UIView {
 
     private let placeholderView = UIView()
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
-    let imageView = UIImageView()
-    var imageURL: URL?
+    private let imageView = UIImageView()
+    private var updateImageTask: Task<Void, Never>?
+    var imageURL: URL? {
+        didSet {
+            updateImage()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,12 +54,6 @@ private extension LoaderImageView {
 
     func setupImageView() {
         imageView.layout(in: self)
-        Task {
-            guard let imageURL else { return }
-            
-            await imageView.load(from: imageURL)
-            updateVisibility()
-        }
     }
 
     func setupPlaceholderView() {
@@ -70,7 +69,24 @@ private extension LoaderImageView {
         startAnimating()
     }
 
+    func updateImage() {
+        updateImageTask?.cancel()
+        updateImageTask = Task {
+            imageView.image = nil
+            guard let imageURL else {
+                updateVisibility()
+                return
+            }
+
+            await imageView.load(from: imageURL)
+            updateVisibility()
+        }
+    }
+
     func updateVisibility() {
         placeholderView.isHidden = imageView.image != nil
+        if imageURL == nil {
+            activityIndicator.stopAnimating()
+        }
     }
 }

@@ -51,6 +51,7 @@ final class DevelopersTableViewCell: UITableViewCell {
         addressLabel.text = ""
         codingLevelLabel.text = ""
         developerImageView.startAnimating()
+        developerImageView.imageURL = nil
     }
 }
 
