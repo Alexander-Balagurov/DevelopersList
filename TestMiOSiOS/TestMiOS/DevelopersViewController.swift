@@ -30,8 +30,8 @@ private extension DevelopersViewController {
     func setup() {
         title = .navigationTitle
         view.backgroundColor = .white
-        modelController.setTeamUIDelegate(self)
         setupTableView()
+        setupModelController()
     }
 
     func setupTableView() {
@@ -40,6 +40,15 @@ private extension DevelopersViewController {
         tableView.dataSource = self
         tableView.allowsSelection = false
         tableView.register(DevelopersTableViewCell.self)
+    }
+
+    func setupModelController() {
+        modelController.onListUpdate = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        modelController.onMemberInfoUpdate = { [weak self] indexPath in
+            self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 
@@ -61,16 +70,5 @@ extension DevelopersViewController: UITableViewDelegate, UITableViewDataSource {
         )
 
         return cell
-    }
-}
-
-extension DevelopersViewController: TeamDataUpdaterDelegate {
-
-    func teamListShouldBeRefreshed() {
-        tableView.reloadData()
-    }
-
-    func informationForMemberWithIDhasChanged(memberID: String) {
-
     }
 }
