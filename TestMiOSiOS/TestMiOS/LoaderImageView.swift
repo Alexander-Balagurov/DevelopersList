@@ -8,9 +8,6 @@
 
 import UIKit
 
-private extension CGFloat {
-    static let indicatorSize: Self = 24
-}
 
 final class LoaderImageView: UIView {
 
@@ -62,8 +59,6 @@ private extension LoaderImageView {
         activityIndicator.layout(in: placeholderView) {
             $0.centerX == placeholderView.centerXAnchor
             $0.centerY == placeholderView.centerYAnchor
-            $0.width == .indicatorSize
-            $0.height == $0.width
         }
         activityIndicator.color = .black
         startAnimating()

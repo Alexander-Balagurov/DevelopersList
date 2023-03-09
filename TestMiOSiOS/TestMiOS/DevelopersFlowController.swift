@@ -29,7 +29,8 @@ extension DevelopersFlowController {
     }
 
     func makeDevelopersViewController() -> DevelopersViewController {
-        let vc = DevelopersViewController()
+        let modelController = DevelopersModelController()
+        let vc = DevelopersViewController(modelController: modelController)
 
         return vc
     }

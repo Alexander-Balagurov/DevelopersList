@@ -14,11 +14,10 @@
 		99A700BA29B293BC00B4BC8A /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700B929B293BC00B4BC8A /* Autolayout.swift */; };
 		99A700C129B2943E00B4BC8A /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700BD29B2943E00B4BC8A /* UIViewController+extensions.swift */; };
 		99A700C329B2943E00B4BC8A /* UITableView+reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700BF29B2943E00B4BC8A /* UITableView+reusable.swift */; };
-		99A700C529B294F600B4BC8A /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700C429B294F600B4BC8A /* MainFlowController.swift */; };
+		99A700C529B294F600B4BC8A /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700C429B294F600B4BC8A /* AppFlowController.swift */; };
 		99A700C929B2A0FC00B4BC8A /* DevelopersFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700C829B2A0FC00B4BC8A /* DevelopersFlowController.swift */; };
 		99A700CB29B2A60400B4BC8A /* DevelopersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700CA29B2A60400B4BC8A /* DevelopersViewController.swift */; };
 		99A700CD29B2A78000B4BC8A /* DevelopersModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A700CC29B2A78000B4BC8A /* DevelopersModelController.swift */; };
-		99A7FFEE29B265E200B4BC8A /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A7FFED29B265E200B4BC8A /* AppFlowController.swift */; };
 		D7B65222274E24D900341421 /* BDataProvider.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B65221274E24D900341421 /* BDataProvider.xcframework */; };
 		D7C4F0A21CF4444E003FEDB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C4F0A11CF4444E003FEDB9 /* AppDelegate.swift */; };
 		D7C4F0A91CF4444E003FEDB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7C4F0A81CF4444E003FEDB9 /* Assets.xcassets */; };
@@ -46,11 +45,10 @@
 		99A700B929B293BC00B4BC8A /* Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Autolayout.swift; path = "../../../../../Downloads/EmployeesAndGallery-develop/EmployeesAndGallery/EmployeesAndGallery/Common/Autolayout.swift"; sourceTree = "<group>"; };
 		99A700BD29B2943E00B4BC8A /* UIViewController+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
 		99A700BF29B2943E00B4BC8A /* UITableView+reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+reusable.swift"; sourceTree = "<group>"; };
-		99A700C429B294F600B4BC8A /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
+		99A700C429B294F600B4BC8A /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		99A700C829B2A0FC00B4BC8A /* DevelopersFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersFlowController.swift; sourceTree = "<group>"; };
 		99A700CA29B2A60400B4BC8A /* DevelopersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersViewController.swift; sourceTree = "<group>"; };
 		99A700CC29B2A78000B4BC8A /* DevelopersModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersModelController.swift; sourceTree = "<group>"; };
-		99A7FFED29B265E200B4BC8A /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		D7B65221274E24D900341421 /* BDataProvider.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BDataProvider.xcframework; sourceTree = "<group>"; };
 		D7C4F09E1CF4444E003FEDB9 /* TestMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7C4F0A11CF4444E003FEDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,15 +101,6 @@
 			path = "../../../../../Downloads/EmployeesAndGallery-develop/EmployeesAndGallery/EmployeesAndGallery/Common/Extensions";
 			sourceTree = "<group>";
 		};
-		99A700C629B2A0BD00B4BC8A /* MainFlow */ = {
-			isa = PBXGroup;
-			children = (
-				99A700C429B294F600B4BC8A /* MainFlowController.swift */,
-				99A700C729B2A0DD00B4BC8A /* Developers */,
-			);
-			name = MainFlow;
-			sourceTree = "<group>";
-		};
 		99A700C729B2A0DD00B4BC8A /* Developers */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +115,8 @@
 		99A7FFEC29B265C200B4BC8A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				99A7FFED29B265E200B4BC8A /* AppFlowController.swift */,
-				99A700C629B2A0BD00B4BC8A /* MainFlow */,
+				99A700C429B294F600B4BC8A /* AppFlowController.swift */,
+				99A700C729B2A0DD00B4BC8A /* Developers */,
 			);
 			name = Flows;
 			sourceTree = "<group>";
@@ -254,11 +243,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				992F939C29B74D30009F79D1 /* UIDimension.swift in Sources */,
-				99A7FFEE29B265E200B4BC8A /* AppFlowController.swift in Sources */,
 				99A700C929B2A0FC00B4BC8A /* DevelopersFlowController.swift in Sources */,
 				992F939A29B73C5D009F79D1 /* DevelopersTableViewCell.swift in Sources */,
 				99A700C329B2943E00B4BC8A /* UITableView+reusable.swift in Sources */,
-				99A700C529B294F600B4BC8A /* MainFlowController.swift in Sources */,
+				99A700C529B294F600B4BC8A /* AppFlowController.swift in Sources */,
 				998AAA5129B795B3005C9CDB /* LoaderImageView.swift in Sources */,
 				998AAA4F29B7925A005C9CDB /* UIImageView+Extension.swift in Sources */,
 				99A700BA29B293BC00B4BC8A /* Autolayout.swift in Sources */,

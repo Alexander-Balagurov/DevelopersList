@@ -13,6 +13,10 @@ private extension CGFloat {
     static let codingLevelLabelMinimumScaleFactor: Self = 0.7
 }
 
+private extension TimeInterval {
+    static let hideDelay: Self = 5
+}
+
 private extension String {
     static let encryptionKeyButtonTitle = "Show encryption key"
 }
@@ -25,10 +29,13 @@ final class DevelopersTableViewCell: UITableViewCell {
     private let addressLabel = UILabel()
     private let codingLevelLabel = UILabel()
     private let encryprionKeyButton = UIButton(type: .system)
+    private let activityIndicator = UIActivityIndicatorView(style: .medium)
+    private let encryptionKeyLabel = UILabel()
 
-    var viewConfig: ViewConfig? {
+    var encryptionKey: (() -> String)?
+    var viewConfiguration: ViewConfiguration? {
         didSet {
-            viewConfigDidChange()
+            viewConfigurationDidChange()
         }
     }
 
@@ -50,6 +57,7 @@ final class DevelopersTableViewCell: UITableViewCell {
         nameLabel.text = ""
         addressLabel.text = ""
         codingLevelLabel.text = ""
+        encryptionKeyLabel.text = ""
         developerImageView.startAnimating()
         developerImageView.imageURL = nil
     }
@@ -59,7 +67,7 @@ final class DevelopersTableViewCell: UITableViewCell {
 
 extension DevelopersTableViewCell {
 
-    struct ViewConfig {
+    struct ViewConfiguration {
         let name: String
         let address: String
         let codingLevel: String
@@ -75,6 +83,8 @@ private extension DevelopersTableViewCell {
         setupStackView()
         setupLabels()
         setupEncryptionKeyButton()
+        setupEncryptionKeyLabel()
+        setupActivityIndicator()
     }
 
     func setupImageView() {
@@ -101,7 +111,7 @@ private extension DevelopersTableViewCell {
     }
 
     func setupLabels() {
-        [nameLabel, addressLabel, codingLevelLabel].forEach {
+        [nameLabel, addressLabel, codingLevelLabel, encryptionKeyLabel].forEach {
             $0.font = .systemFont(ofSize: 14)
         }
         codingLevelLabel.numberOfLines = 0
@@ -117,14 +127,57 @@ private extension DevelopersTableViewCell {
             $0.bottom == containerView.bottomAnchor - UIDimension.layoutMargin
         }
         encryprionKeyButton.setTitle(.encryptionKeyButtonTitle, for: .normal)
+        encryprionKeyButton.addTarget(self, action: #selector(encryptionKeyButtonTap), for: .touchUpInside)
     }
 
-    func viewConfigDidChange() {
-        guard let viewConfig else { return }
+    func setupActivityIndicator() {
+        activityIndicator.layout(in: containerView) {
+            $0.centerX == containerView.centerXAnchor
+            $0.bottom == containerView.bottomAnchor - UIDimension.layoutMargin2x
+        }
+        activityIndicator.color = .black
+    }
 
-        nameLabel.text = viewConfig.name
-        addressLabel.text = viewConfig.address
-        codingLevelLabel.text = viewConfig.codingLevel
-        developerImageView.imageURL = viewConfig.imageURL
+    func setupEncryptionKeyLabel() {
+        encryptionKeyLabel.layout(in: containerView) {
+            $0.leading == containerView.leadingAnchor + UIDimension.layoutMargin
+            $0.trailing == containerView.trailingAnchor - UIDimension.layoutMargin
+            $0.top == developerImageView.bottomAnchor + UIDimension.layoutMargin
+            $0.bottom == containerView.bottomAnchor - UIDimension.layoutMargin
+        }
+        encryptionKeyLabel.isHidden = true
+    }
+
+    @objc func encryptionKeyButtonTap() {
+        toggleVisibility()
+        activityIndicator.startAnimating()
+
+        DispatchQueue.global(qos: .userInteractive).async {
+            let key = self.encryptionKey?()
+
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.encryptionKeyLabel.text = key
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + .hideDelay) {
+                    self.toggleVisibility()
+                    self.encryptionKeyLabel.text = ""
+                }
+            }
+        }
+    }
+
+    func toggleVisibility() {
+        encryprionKeyButton.isHidden = !encryprionKeyButton.isHidden
+        encryptionKeyLabel.isHidden = !encryptionKeyLabel.isHidden
+    }
+
+    func viewConfigurationDidChange() {
+        guard let viewConfiguration else { return }
+
+        nameLabel.text = viewConfiguration.name
+        addressLabel.text = viewConfiguration.address
+        codingLevelLabel.text = viewConfiguration.codingLevel
+        developerImageView.imageURL = viewConfiguration.imageURL
     }
 }

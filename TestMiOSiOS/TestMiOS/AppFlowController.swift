@@ -8,9 +8,16 @@
 
 import UIKit
 
+private extension String {
+    static let developersTabTitle = "Developers"
+    static let personImageName = "person.2"
+    static let personFillImageName = "person.2.fill"
+}
+
 final class AppFlowController: UIViewController {
 
-    private var mainFlowController: MainFlowController?
+    private let tabbarController = UITabBarController()
+    private lazy var developersFlowController = makeDevelopersFlowController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +29,18 @@ final class AppFlowController: UIViewController {
 private extension AppFlowController {
 
     func setup() {
-        let mainFC = MainFlowController()
-        mainFlowController = mainFC
-        addChildController(mainFC, to: view)
+        addChildController(tabbarController, to: view)
+        tabbarController.setViewControllers([developersFlowController], animated: false)
+    }
+
+    func makeDevelopersFlowController() -> DevelopersFlowController {
+        let fc = DevelopersFlowController()
+        fc.tabBarItem = .init(
+            title: .developersTabTitle,
+            image: UIImage(systemName: .personImageName),
+            selectedImage: UIImage(systemName: .personFillImageName)
+        )
+
+        return fc
     }
 }
